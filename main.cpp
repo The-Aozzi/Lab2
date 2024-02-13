@@ -267,7 +267,7 @@ BigInt factorial(int number)
  * 
  * @return The result of exponentiation represented as Bigint.
  */
-BigInt power(int base, int exponent)
+BigInt power(BigInt base, int exponent)
 {
     BigInt result = 1;
     while (exponent > 0)
@@ -302,8 +302,8 @@ BigInt fibonacci(int number)
 
 int main(int, char **)
 {
-    int input_1;
-    int input_2;
+    unsigned int input_1;
+    unsigned int input_2;
 
     std::cin >> input_1;
     std::cout << factorial(input_1) << std::endl;
@@ -315,6 +315,11 @@ int main(int, char **)
     std::cout << power(2, input_1) + power(2, input_2) << std::endl;
 
     std::cin >> input_1 >> input_2;
+    while (input_1 < input_2)
+    {
+        std::cout << "The first number should be greater or equal than the second number!" << std::endl;
+        std::cin >> input_1 >> input_2;
+    }
     std::cout << power(2, input_1) - power(2, input_2) << std::endl;
 
     std::cin >> input_1;
